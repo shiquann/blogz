@@ -45,21 +45,25 @@ def blogs():
     blog_posts = Blog_post.query.get(ids)
     new_title = blog_posts.title
     body = blog_posts.post
-
-    
-    
     return render_template('entry.html', title=new_title, body=body)
+    
+@app.route('/post', methods=['POST'])
+def post():
+    blog_body = request.form['blog_body']
+    blog_title = request.form['blog_title']
+    new_post = Blog_post(blog_title, blog_body)
+    db.session.add(new_post)
+    db.session.commit()
+    blogpost = Blog_post.query.all()
+    return render_template('entry.html', body=blog_body, title=blog_title )
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        return redirect('/blog')  
+        return render_template('/blogs')  
 
     return render_template('newpost.html', title='Add a Blog Entry'  )
-
-
-
 
 if __name__ == '__main__':
     app.run()
