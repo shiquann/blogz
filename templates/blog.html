@@ -3,8 +3,9 @@
 {% block content %}
 <ul>
     {% for blogposts in blogpost %}
-    <li class='title'><a href='/blogs?id={{blogposts.id}}'>{{blogposts.title}}</a></li>
+    <li><a href='/blogs?id={{blogposts.id}}'>{{blogposts.title}}</a></li>
     <li>{{blogposts.post}}</li>
+    <li><p>Written by <a href="/userposts?id={{blogposts.owner.id}}">{{blogposts.owner.username}}</a></p></li>
     <hr />
     {% endfor %}
 </ul>

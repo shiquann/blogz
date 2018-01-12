@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <p>{{body}}</p>
+<p>Written by <a href="/userposts?id={{username.id}}">{{username.username}}</a></p>
 {% endblock %}

@@ -1,0 +1,29 @@
+<h1>Register</h1>
+<form action="/register" method="POST">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td>
+                    <input name="username" value="{{username}}" type="text">
+                    <span>{{username_error}}</span>
+                </td>
+            </tr>
+            <tr> 
+                <td><label for="password">Password</label></td>
+                <td>
+                    <input name="password" type="password">
+                    <span>{{password_error}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="verify">Verify Password</label></td>
+                <td>
+                    <input name="verify" type="password">
+                    <span>{{verify_password_error}}</span> 
+                </td>
+            </tr>
+
+        </tbody></table>
+        <input type="submit">
+</form>
